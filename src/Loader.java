@@ -3,8 +3,15 @@ public class Loader
 {
     public static void main(String[] args)
     {
-        Cat cat = new Cat();
+        Cat murka = new Cat();
+        murka.meow();
+        System.out.println("Murka weight: " + murka.getWeight());
+        Cat vasya = new Cat();
+        vasya.drink(4000.2);
+        vasya.feed(4000.3);
+        System.out.println("Vasya weight:" + vasya.getWeight());
+        System.out.println("Vasya is " + vasya.getStatus() + " and Murka is " + murka.getStatus());
 
-        System.out.println(cat.getStatus());
+
     }
 }
