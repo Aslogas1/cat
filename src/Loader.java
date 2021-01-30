@@ -3,19 +3,15 @@ public class Loader
 {
     public static void main(String[] args)
     {
-        Cat murka = new Cat();
-        murka.meow();
-        System.out.println("Murka weight: " + murka.getWeight());
         Cat vasya = new Cat();
-        vasya.drink(4000.2);
-        vasya.feed(3500.3);
-        System.out.println("Vasya weight:" + vasya.getWeight());
-        System.out.println("Vasya is " + vasya.getStatus() + " and Murka is " + murka.getStatus());
-        vasya.getEatenFood();
-        System.out.println(vasya.getEatenFood());
-        vasya.toilet();
-        System.out.println(vasya.getWeight());
-
+        Cat murka = new Cat();
+        Cat pushok = new Cat();
+        murka.feed(977.66);
+        vasya.drink(9988.55);
+        System.out.println("catCount = " + Cat.getCount());
+        System.out.println(murka.getWeight());
+        System.out.println(murka.getStatus());
+        System.out.println(murka.isAlive());
 
 
     }

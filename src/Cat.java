@@ -1,6 +1,5 @@
-
-public class Cat
-{
+public class Cat {
+    public static int count;
     private double originWeight;
     private double weight;
     private double eatenFood = 0;
@@ -13,30 +12,48 @@ public class Cat
         originWeight = weight;
         minWeight = 1000.0;
         maxWeight = 9000.0;
+        count++;
+    }
+    public static int getCount()
+    {
+        return count;
     }
     public void toilet()
     {
         weight = weight * 0.9;
+        if(weight < minWeight){
+            catDied();
+        }
         System.out.println("cat got toilet");
     }
-
+    private static void catDied(){
+        count--;
+    }
     public void meow()
     {
-        weight = weight - 3500;
+        weight = weight - 1;
         System.out.println("Meow");
+        if(weight < minWeight) {
+            catDied();
+        }
     }
 
     public void feed(Double amount)
     {
         eatenFood += amount;
         weight = weight + amount;
+        if(weight > maxWeight) {
+            catDied();
+        }
     }
 
     public void drink(Double amount)
     {
         weight = weight + amount;
+        if(weight > maxWeight) {
+            catDied();
+        }
     }
-
     public Double getWeight()
     {
         return weight;
@@ -60,5 +77,9 @@ public class Cat
     public Double getEatenFood()
     {
         return eatenFood;
+    }
+    public boolean isAlive()
+    {
+        return getWeight() >= minWeight && getWeight() <= maxWeight;
     }
 }
